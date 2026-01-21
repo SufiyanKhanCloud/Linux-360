@@ -1,0 +1,8 @@
+CRUD
+
+Create
+Read
+Update 
+Delete
+
+performed at files, directories, file content, system records (like user data or processes)
