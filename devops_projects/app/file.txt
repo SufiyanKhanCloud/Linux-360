@@ -1,6 +1,6 @@
-Basic linux commands and their uses 
+Basic linux commands 
 
-pwd
+pwd 
 ls
 cd 
 mkdir
