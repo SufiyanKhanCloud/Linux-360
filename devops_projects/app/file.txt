@@ -11,4 +11,15 @@ mv
 rm
 cat
 clear 
-exit 
+exit
+less
+head
+tail 
+nano
+vim
+chmod
+chown
+ps
+top
+htop
+kill 
