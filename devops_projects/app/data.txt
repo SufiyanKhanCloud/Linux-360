@@ -1,0 +1,7 @@
+
+shell script
+cron job 
+log files 
+ssh 
+sudo 
+
