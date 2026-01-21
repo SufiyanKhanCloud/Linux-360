@@ -1,0 +1,14 @@
+Basic linux commands and their uses 
+
+pwd
+ls
+cd 
+mkdir
+rmdir
+touch
+cp 
+mv
+rm
+cat
+clear 
+exit 
