@@ -24,3 +24,7 @@ p > process names
 (6) netstat network statistics
 e.g: netstat -tulnp
 nowadays ss is used more 
+
+(7) hostname
+e.g: hostname 
+output: sufiyan-khan-VirtualBox
