@@ -1,7 +1,12 @@
 Linux networking commands
 
+ip (internet protocol)
+e.g: ip a
+
 ping
-netstat (network statistics)
-ifconfig (interface configuration)
-traceroute
-tracepath
+e.g: ping google.com
+
+curl
+e.g: curl https://sufiyan-khan-portfolio.lovable.app/
+
+
