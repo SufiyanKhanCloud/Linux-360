@@ -28,3 +28,14 @@ nowadays ss is used more
 (7) hostname
 e.g: hostname 
 output: sufiyan-khan-VirtualBox
+
+(8) hostnamectl
+e.g: hostnamectl
+output : hostname + OS detailed info
+
+(9) traceroute 
+e.g: traceroute google.com
+
+(10) nslookup
+e.g: nslookup google.com
+
