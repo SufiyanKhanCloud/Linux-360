@@ -39,3 +39,5 @@ e.g: traceroute google.com
 (10) nslookup
 e.g: nslookup google.com
 
+(11) ifconfig
+e.g: ifconfig
