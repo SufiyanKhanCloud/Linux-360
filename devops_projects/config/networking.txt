@@ -1,18 +1,18 @@
 Linux networking commands
 
-ip (internet protocol)
+(1) ip (internet protocol)
 e.g: ip a
 
-ping
+(2) ping
 e.g: ping google.com
 
-curl
+(3) curl
 e.g: curl https://sufiyan-khan-portfolio.lovable.app/
 
-wget webget
+(4) wget webget
 e.g: wget https://example.com/file.txt
 
-ss socket statistics
+(5) ss socket statistics
 e.g: ss -tulnp 
 flags: 
 t > TCP
@@ -21,3 +21,6 @@ l > listening
 u > numbers
 p > process names
 
+(6) netstat network statistics
+e.g: netstat -tulnp
+nowadays ss is used more 
