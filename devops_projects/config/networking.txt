@@ -41,6 +41,7 @@ e.g: nslookup google.com
 
 (11) ifconfig
 e.g: ifconfig
+better to use  ip a
 
 (12) tracepath
 e.g: tracepath google.com
