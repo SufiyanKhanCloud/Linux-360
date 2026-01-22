@@ -41,3 +41,9 @@ e.g: nslookup google.com
 
 (11) ifconfig
 e.g: ifconfig
+
+(12) tracepath
+e.g: tracepath google.com
+
+(13) dig (domain information groper) 
+e.g: dig google.com
