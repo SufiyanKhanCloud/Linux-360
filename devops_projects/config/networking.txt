@@ -9,4 +9,15 @@ e.g: ping google.com
 curl
 e.g: curl https://sufiyan-khan-portfolio.lovable.app/
 
+wget webget
+e.g: wget https://example.com/file.txt
+
+ss socket statistics
+e.g: ss -tulnp 
+flags: 
+t > TCP
+u > UDP
+l > listening
+u > numbers
+p > process names
 
