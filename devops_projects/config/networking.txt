@@ -66,4 +66,11 @@ e.g: whois google.com
 (20) iptables 
 e.g: sudo iptables --list-rules
 
+(21) watch <option> <command>
+e.g: watch top, watch mtr google.com, watch -n 5 top
+
+(22)nmap (network mapper)
+e.g: nmap -v google.com
+
+(23) route <options> <command>
 
