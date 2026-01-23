@@ -51,3 +51,13 @@ e.g: dig google.com
 
 (14) telnet <host> <port>
 e.g: telnet mail.examle.com 80
+
+(15) mtr (my trace route)
+
+(16) iwconfig
+
+(17) whois (website name)
+e.g: whois google.com
+
+(18) ifplugstatus
+
