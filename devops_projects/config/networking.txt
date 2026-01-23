@@ -48,3 +48,6 @@ e.g: tracepath google.com
 
 (13) dig (domain information groper) 
 e.g: dig google.com
+
+(14) telnet <host> <port>
+e.g: telnet mail.examle.com 80
