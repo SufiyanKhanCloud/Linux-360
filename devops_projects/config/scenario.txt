@@ -1,0 +1,10 @@
+(Q.1) There is an application running on one server and database is running on another server the issue is
+they are not communicating and connecting with each other how you debug and solve this issue?
+
+(Q.2) How you transfer a file from one server to another linux server?
+
+(Q.3) A server is stuck and it needs to be reboot after restarting the server what are you going to check? 
+
+(Q.4) How do you implement server side security?
+
+(Q.5) On same network create 2 servers to transfer file between them?
