@@ -61,3 +61,9 @@ e.g: whois google.com
 
 (18) ifplugstatus
 
+(19) arp (Address Resolution Protocol)
+
+(20) iptables 
+e.g: sudo iptables --list-rules
+
+
