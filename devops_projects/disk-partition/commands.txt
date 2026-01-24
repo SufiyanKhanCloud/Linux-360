@@ -1,0 +1,2 @@
+lsblk
+sudo growpart /dev/sda 2
