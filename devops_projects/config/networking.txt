@@ -74,3 +74,9 @@ e.g: nmap -v google.com
 
 (23) route <options> <command>
 
+(24) scp (secure copy protocol)
+e.g: scp file.txt user@server_IP:/path/
+scp -r myfolder user@server_IP:/path/
+
+(25)rsync -arz  file.txt user@server_IP:/path/
+
