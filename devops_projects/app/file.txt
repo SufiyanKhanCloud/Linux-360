@@ -26,3 +26,11 @@ kill
 grep
 find
 man
+sudo
+df
+du
+tar
+ssh
+wget
+curl
+
