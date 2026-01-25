@@ -33,4 +33,5 @@ tar
 ssh
 wget
 curl
-
+alias
+echo 
