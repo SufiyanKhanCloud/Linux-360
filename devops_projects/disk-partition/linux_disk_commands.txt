@@ -1,0 +1,25 @@
+| COMMAND         | MEANING                    | REAL-WORLD USE CASE                                           |
+|-----------------|----------------------------|-------------------------------------------------------------- |
+| lsblk           | List Block Devices         | To verify if the OS has detected a newly attached disk.       |
+| df -h           | Disk Free (Readable)       | To check available space when facing a "Storage Full" error.  |
+| du -sh [folder] | Disk Usage (Summary)       | To identify which specific folder is consuming the most space.|
+| blkid           | Block ID (UUID)            | To get the UUID needed for permanent mounting in /etc/fstab.  | 
+| fdisk -l        | List Partition Table       | To view the disk structure (MBR vs GPT) and sectors.          |
+|-----------------|----------------------------|-------------------------------------------------------|
+| fdisk [disk]    | Format Disk Tool           | To create, delete, or modify partitions on a disk.    |
+| gdisk [disk]    | GPT Disk Tool              | To partition disks larger than 2TB (using GPT).       |
+| parted          | Partition Editor           | For partitioning in automation scripts (non-interactive).|
+| cfdisk          | Graphical Fdisk            | A beginner-friendly tool with a visual menu for partitioning.|
+|-----------------|----------------------------|-------------------------------------------------------|
+| mkfs.ext4       | Make File System (ext4)    | To format a partition with the standard Linux file system.|
+| mkfs.xfs        | Make File System (XFS)     | To format with XFS (used for high-performance servers).|
+| mkswap          | Make Swap                  | To initialize a partition for use as Virtual RAM (Swap).|
+|-----------------|----------------------------|-------------------------------------------------------|
+| mount           | Attach Disk                | To temporarily attach a disk to a specific directory. |
+| umount          | Detach Disk                | To safely disconnect a disk before removal.           |
+| mount -a        | Mount All (fstab)          | To reload /etc/fstab entries to test config without rebooting.|
+|-----------------|----------------------------|-------------------------------------------------------|
+| fsck            | File System Check          | To scan and repair errors on a corrupted file system. |
+| badblocks       | Check Physical Damage      | To scan for bad sectors (physical defects) on old drives.|
+| growpart        | Grow Partition             | To extend partition boundaries after resizing a cloud/VM disk.|
+| resize2fs       | Resize Filesystem          | To expand the file system into the new space (after growpart).|
