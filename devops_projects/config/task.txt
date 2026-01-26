@@ -1,0 +1,1 @@
+Task: Create a server on which files are transferred between two machines on same network securely.	
