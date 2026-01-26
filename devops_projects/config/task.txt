@@ -1,1 +1,81 @@
-Task: Create a server on which files are transferred between two machines on same network securely.	
+============================================================
+PROJECT: Centralized File Server Setup (Samba)
+============================================================
+
+OBJECTIVE:
+Configure an Ubuntu VM to act as a centralized file server that allows
+real-time file sharing and editing between Windows and Linux clients
+on the same local network.
+
+ENVIRONMENT:
+- Server: Ubuntu VirtualBox VM (Bridged Adapter)
+- Client 1: Windows 10 Host
+- Client 2: Linux Laptop (Friend's machine)
+
+------------------------------------------------------------
+STEP 1: CONFIGURATION
+------------------------------------------------------------
+I installed Samba and edited the configuration file using:
+> sudo nano /etc/samba/smb.conf
+
+I added the following block at the end of the file to define the
+shared folder rules:
+
+[TeamData]
+path = /home/sufiyan-khan/sambashare
+writeable = yes
+browsable = yes
+guest ok = no
+read only = no
+create mask = 0777
+directory mask = 0777
+
+*Note: Permissions are set to 0777 for learning purposes to ensure
+easy access. In production, stricter permissions (0770) are recommended.
+
+------------------------------------------------------------
+STEP 2: USER SETUP
+------------------------------------------------------------
+I created a dedicated Samba user to separate network access from
+system login:
+> sudo smbpasswd -a sufiyan-khan
+
+(I set a secure password when prompted).
+
+------------------------------------------------------------
+STEP 3: APPLYING CHANGES
+------------------------------------------------------------
+Restarted the Samba service to apply the new configuration:
+> sudo systemctl restart smbd
+
+------------------------------------------------------------
+STEP 4: CONNECTIVITY & VERIFICATION
+------------------------------------------------------------
+
+[A] Windows Verification (Write Test)
+1. Checked VM IP using command: ip a
+2. On Windows, opened Run (Win+R) and typed: \\<VM_IP_ADDRESS>
+3. Authenticated and opened the 'TeamData' folder.
+4. Created a file named 'WindowsFile.txt'.
+5. Added text content: "linux text from windows" and saved it.
+
+[B] Server Integrity Check
+Back on the Linux VM, I verified that the file was created successfully:
+> cat ~/sambashare/WindowsFile.txt
+
+Result: The terminal displayed "linux text from windows".
+Status: SUCCESS.
+
+[C] Linux Client Verification
+My friend connected to the same Wi-Fi network.
+1. Used "Connect to Server" with address: smb://<VM_IP>/TeamData
+2. Domain used: WORKGROUP
+3. Successfully accessed the files created by Windows.
+
+------------------------------------------------------------
+IMPORTANT NOTE ON NETWORKING
+------------------------------------------------------------
+This setup uses a Bridged Network Adapter. If the Wi-Fi network
+changes, the Router will assign a new IP address to the VM.
+To connect again, I simply need to check the new IP (ip a) and use
+that address on the client machines. No re-configuration is needed.
