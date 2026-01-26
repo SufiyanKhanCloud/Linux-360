@@ -1,0 +1,127 @@
+============================================================
+PROJECT: Linux Disk Management & Persistent Storage Setup
+============================================================
+
+OBJECTIVE:
+To attach a new raw hard disk to a Linux system, partition it, 
+format it with a file system, and mount it permanently so that 
+it retains data and stays connected even after a system reboot.
+
+ENVIRONMENT:
+- OS: Ubuntu (VirtualBox VM)
+- New Disk: 10 GB Virtual Disk Image (VDI)
+- Mount Point: /mnt/practice_data
+- File System: ext4
+
+------------------------------------------------------------
+SECTION 1: COMMAND REFERENCE CHEAT SHEET
+------------------------------------------------------------
+Below are the commands used in this project with their full forms:
+
+1. lsblk (List Block Devices)
+   - Function: Lists all storage devices (disks/partitions) attached to the system.
+   
+2. fdisk (Fixed Disk / Format Disk)
+   - Function: A command-line utility to create and manipulate disk partition tables.
+   
+3. mkfs (Make File System)
+   - Function: Formats a partition to a specific file system (e.g., ext4, xfs).
+   
+4. mkdir (Make Directory)
+   - Function: Creates a new folder/directory.
+   
+5. mount
+   - Function: Attaches a storage device (partition) to a specific directory (mount point).
+   
+6. df -h (Disk Free - Human Readable)
+   - Function: Shows available disk space and mount points in GB/MB (readable format).
+   
+7. nano
+   - Function: A simple command-line text editor used to edit configuration files.
+
+8. reboot
+   - Function: Restarts the system.
+
+------------------------------------------------------------
+SECTION 2: STEP-BY-STEP IMPLEMENTATION NOTES
+------------------------------------------------------------
+
+[STEP 0] Virtual Hardware Setup (In VirtualBox)
+-----------------------------------------------
+Before starting the VM, I added a new virtual hard disk:
+1. Went to Settings > Storage > Controller: SATA.
+2. Clicked "Add Hard Disk" icon.
+3. Created a new 10 GB VDI (Dynamically Allocated).
+4. Attached it to the VM and started the system.
+
+[STEP 1] Identification
+-----------------------
+After booting, I verified if the Linux kernel detected the new disk.
+> lsblk
+
+Result: 
+- 'sda' was the main OS disk.
+- 'sdb' (10G) appeared as the new unpartitioned disk.
+
+[STEP 2] Partitioning the Disk
+------------------------------
+I used the fdisk utility to create a new partition on the raw disk.
+> sudo fdisk /dev/sdb
+
+Interactive Inputs used inside fdisk:
+- 'n' : Create New partition.
+- 'p' : Select Primary partition type.
+- '1' : Assign Partition Number 1.
+- [Enter] : Default First Sector.
+- [Enter] : Default Last Sector (Use full 10GB space).
+- 'w' : Write changes to disk and exit.
+
+Verification:
+> lsblk
+Result: 'sdb1' partition is now visible under 'sdb'.
+
+[STEP 3] Formatting (Creating File System)
+------------------------------------------
+The new partition was empty. I formatted it with the standard Linux
+file system (ext4).
+> sudo mkfs.ext4 /dev/sdb1
+
+[STEP 4] Mounting (Temporary Attachment)
+----------------------------------------
+To use the storage, I created a directory and attached the disk to it.
+1. Create directory:
+   > sudo mkdir /mnt/practice_data
+
+2. Mount the partition:
+   > sudo mount /dev/sdb1 /mnt/practice_data
+
+3. Verify:
+   > df -h
+   Result: /dev/sdb1 is mounted on /mnt/practice_data.
+
+[STEP 5] Configuring Persistence (fstab)
+----------------------------------------
+To ensure the disk stays mounted after a reboot, I edited the
+Filesystem Table file.
+
+1. Open fstab file:
+   > sudo nano /etc/fstab
+
+2. Added the following configuration line at the end:
+   /dev/sdb1    /mnt/practice_data    ext4    defaults    0    0
+
+3. Safe Verification (Crucial Step):
+   I ran this command to check for errors before rebooting:
+   > sudo mount -a
+   (No errors returned, confirming the syntax was correct).
+
+[STEP 6] Final Verification
+---------------------------
+I restarted the machine to test persistence.
+> sudo reboot
+
+After login, I checked the status again:
+> df -h
+
+SUCCESS: The disk /dev/sdb1 was automatically mounted at 
+/mnt/practice_data.
