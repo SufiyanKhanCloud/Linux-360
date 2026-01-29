@@ -1,0 +1,102 @@
+k==============================
+Linux Basic Commands Cheat Sheet
+==============================
+(Purpose: Quick reference, copy to a.txt)
+
+1. File & Directory Management
+--------------------------------
+pwd   - Show current directory        - Example: pwd
+ls    - List files                     - Example: ls -la
+cd    - Change directory               - Example: cd /var/log
+mkdir - Create directory               - Example: mkdir logs
+rmdir - Remove empty directory         - Example: rmdir test
+touch - Create empty file              - Example: touch app.txt
+cp    - Copy files                      - Example: cp a.txt b.txt
+mv    - Move / rename                   - Example: mv old.txt new.txt
+rm    - Delete files                     - Example: rm -rf temp/
+
+Tips:
+- -r : recursive, -f : force
+- .  : current dir, .. : parent dir
+
+2. File Viewing & Editing
+--------------------------------
+cat  - View file                        - Example: cat file.txt
+less - Scroll view                       - Example: less logs.txt
+head - First lines                       - Example: head -n 10 file.txt
+tail - Last lines                        - Example: tail -f app.log
+nano - Simple editor                      - Example: nano file.txt
+vim  - Advanced editor                    - Example: vim file.txt
+
+3. File Permissions & Ownership
+--------------------------------
+chmod   - Change permissions            - Example: chmod 755 script.sh
+chown   - Change owner                  - Example: chown user:file file.txt
+ls -l   - View permissions              - Example: ls -l
+
+Permissions:
+r = read (4), w = write (2), x = execute (1)
+
+4. User & Group Management
+--------------------------------
+whoami   - Current user                  - Example: whoami
+id       - User info                     - Example: id user
+adduser  - Add user                      - Example: sudo adduser dev
+passwd   - Set password                  - Example: passwd dev
+groups   - User groups                   - Example: groups dev
+
+5. Process Management
+--------------------------------
+ps      - Process list                   - Example: ps aux
+top     - Live processes                 - Example: top
+htop    - Enhanced top                   - Example: htop
+kill    - Stop process                   - Example: kill -9 PID
+uptime  - System run time                - Example: uptime
+
+6. Disk & Memory Usage
+--------------------------------
+df      - Disk usage                      - Example: df -h
+du      - Directory size                  - Example: du -sh logs/
+free    - Memory usage                    - Example: free -h
+lsblk   - Block devices                   - Example: lsblk
+
+7. Networking Commands
+--------------------------------
+ip a    - IP details                     - Example: ip a
+ping    - Connectivity check              - Example: ping google.com
+curl    - API / URL check                 - Example: curl ifconfig.me
+wget    - Download files                  - Example: wget url
+ss      - Ports & services                - Example: ss -tulnp
+
+8. Search & Filters
+--------------------------------
+grep  - Search text                       - Example: grep "error" app.log
+find  - Find files                         - Example: find / -name file.txt
+awk   - Text processing                    - Example: awk '{print $1}' file
+sed   - Replace text                        - Example: sed 's/old/new/g' file
+wc    - Count lines / words / chars        - Example: wc -l file.txt
+
+9. Archive & Compression
+--------------------------------
+tar   - Archive files                     - Example: tar -cvf app.tar app/
+gzip  - Compress files                     - Example: gzip file.txt
+zip   - Create zip archive                 - Example: zip app.zip file
+unzip - Extract zip files                  - Example: unzip app.zip
+
+10. Package Management (Ubuntu/Debian)
+--------------------------------
+apt update   - Update repositories       - Example: sudo apt update
+apt upgrade  - Upgrade packages          - Example: sudo apt upgrade
+apt install  - Install package           - Example: sudo apt install nginx
+apt remove   - Remove package            - Example: sudo apt remove nginx
+
+11. System Info
+--------------------------------
+uname -a          - Kernel info           - Example: uname -a
+hostnamectl       - Host info             - Example: hostnamectl
+lsb_release -a    - OS info               - Example: lsb_release -a
+
+==============================
+End of Cheat Sheet
+==============================
+
