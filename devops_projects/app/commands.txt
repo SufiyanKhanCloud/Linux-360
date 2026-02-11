@@ -97,6 +97,6 @@ hostnamectl       - Host info             - Example: hostnamectl
 lsb_release -a    - OS info               - Example: lsb_release -a
 
 ==============================
-End of Cheat Sheet
+End of Cheat Sheet DevOps 
 ==============================
 
